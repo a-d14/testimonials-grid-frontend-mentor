@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap');
+
+:root {
+    --page-background-color: #ECF2F8;
+    --body-padding: 4.5rem 1.5rem;
+    --grid-gap: 1.5rem;
+
+    --card-padding: 1.5rem 2rem 2rem;
+    --card-border-radius: 0.5rem;
+
+    --purple-heart: #733FC8;
+    --portage: #A775F1;
+    --alto: #CFCFCF;
+    --fiord: #48556A;
+    --white: #FFFFFF;
+    --mirage: #19202D;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  background: var(--page-background-color);
+  padding: var(--body-padding);
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4,
+button, input, label {
+  line-height: 1.2;
+}
+
+/* Balance text wrapping on headings */
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button,
+textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+.testimonials {
+    max-width: 1110px;
+    margin: 0 auto;
+    display: grid;
+    gap: var(--grid-gap);
+    grid-template-rows: repeat(5, auto);
+    grid-template-areas: 
+        "card-1"
+        "card-2"
+        "card-3"
+        "card-4"
+        "card-5"
+        ;
+    justify-content: center;
+    align-content: center;
+}
+
+/* GENERIC CARD STYLES */
+
+.card {
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    line-height: 1.8;
+    box-shadow: 40px 60px 50px -47px rgba(72, 85, 106, 0.24);
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.testimonial__user-details {
+    display: grid;
+    grid-template: repeat(2, auto) / 1.75rem 1fr;
+    align-items: center;
+    column-gap: 1rem;
+}
+
+.testimonial__user-details img {
+    grid-row: 1 / -1;
+    grid-column: 1 / 2;
+    border-radius: 50%;
+}
+
+.testimonial__user-name {
+    font-size: 13px;
+    color: var(--white);
+    grid-row: 1 / 2;
+    grid-column: 2 / -1;
+}
+
+.testimonial__user-credentials {
+    color: var(--white);
+    opacity: 50%;
+    font-size: 11px;
+    grid-row: 2 / -1;
+    grid-column: 2 / -1;
+}
+
+.testimonial__body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.testimonial__title {
+    font-size: 1.25rem;
+    color: var(--white);
+}
+
+.testimonial__body blockquote {
+    opacity: 70%;
+    line-height: 18px;
+    color: var(--white);
+}
+
+/* SPECIFIC CARD STYLES */
+
+.card-1 {
+    background-color: var(--purple-heart);
+    grid-area: card-1;
+
+    background-image: url("./images/bg-pattern-quotation.svg");
+    background-repeat: no-repeat;
+    background-position: top 0 right 1.5rem;
+
+}
+
+.card-1 blockquote {
+    color: var(--alto);
+}
+
+.card-2 {
+    background-color: var(--fiord);
+    grid-area: card-2;
+}
+
+.card-3 {
+    background-color: var(--white);
+    grid-area: card-3;
+}
+
+.card-4 {
+    background-color: var(--mirage);
+    grid-area: card-4;
+}
+
+.card-5 {
+    background-color: var(--white);
+    grid-area: card-5;
+}
+
+.card-1 img,
+.card-4 img {
+    border: 2px solid var(--portage);
+}
+
+.card-3,
+.card-5 {
+    color: var(--fiord);
+}
+
+.card-3 .testimonial__user-name,
+.card-5 .testimonial__user-name,
+.card-3 .testimonial__title,
+.card-5 .testimonial__title {
+    color: inherit;
+}
+
+.card-3 .testimonial__user-credentials,
+.card-5 .testimonial__user-credentials {
+    color: inherit;
+    opacity: 50%;
+}
+
+.card-3 blockquote,
+.card-5 blockquote {
+    color: inherit;
+    opacity: 70%;
+}
+
+.attribution {
+    text-align: center;
+    padding: 1rem 0;
+}
+
+@media all and (min-width: 768px) {
+    .testimonials {
+        grid-template: repeat(3, auto) / repeat(3, 1fr);
+        grid-template-areas: 
+            "card-1 card-1 card-2"
+            "card-3 card-4 card-4"
+            "card-5 card-5 card-5";
+    }
+}
+
+@media all and (min-width: 1024px) {
+    .testimonials {
+        grid-template: repeat(2, auto) / repeat(4, 1fr);
+        grid-template-areas: 
+            "card-1 card-1 card-2 card-5"
+            "card-3 card-4 card-4 card-5";
+    }
+
+    .card-1 {
+        background-position: top 0 right 5rem;
+    }
+}
